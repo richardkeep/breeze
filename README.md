@@ -1,39 +1,24 @@
-<p align="center"><img src="/art/logo.svg" alt="Logo Laravel Breeze"></p>
+NOTES:
 
-<p align="center">
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/dt/laravel/breeze" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/v/laravel/breeze" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/l/laravel/breeze" alt="License">
-    </a>
-</p>
+To create a data visualization library, I would install ChartJS (https://www.chartjs.org/) which allows you to create various types of charts.
 
-## Introduction
+To get started very quickly, I will start by installing ChartJS Package using this package https://github.com/LaravelDaily/laravel-charts
 
-Breeze provides a minimal and simple starting point for building a Laravel application with authentication. Styled with Tailwind, Breeze publishes authentication controllers and views to your application that can be easily customized based on your own application's needs.
+`composer require laraveldaily/laravel-charts`
 
-Laravel Breeze is powered by Blade and Tailwind. If you're looking for a more robust Laravel starter kit that includes two factor authentication, Livewire / Inertia support, and more, check out [Laravel Jetstream](https://jetstream.laravel.com).
+Then configure the chart as follows:
+```php
+$chart_options = [
+    'chart_title' => 'Academic Results by months',
+    'report_type' => 'group_by_date',
+    'model' => 'App\Models\AcademicReport',
+    'group_by_field' => 'created_at',
+    'group_by_period' => 'month',
+    'chart_type' => 'bar',
+];
+$my_chart = new LaravelChart($chart_options);
 
-## Official Documentation
-
-Documentation for Breeze can be found on the [Laravel website](https://laravel.com/docs/starter-kits#laravel-breeze).
-
-## Contributing
-
-Thank you for considering contributing to Breeze! You can read the contribution guide [here](.github/CONTRIBUTING.md).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-Please review [our security policy](https://github.com/laravel/breeze/security/policy) on how to report security vulnerabilities.
-
-## License
-
-Laravel Breeze is open-sourced software licensed under the [MIT license](LICENSE.md).
+return view('chart', compact('my_chart'));
+```
+then render the bar chart using
+`{!! $my_chart->renderHtml() !!}`
