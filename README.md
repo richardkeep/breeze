@@ -1,5 +1,5 @@
 NOTES:
-
+# Installation
 First create a new Laravel app.
 `laravel new my-awesome-app`
 
@@ -11,6 +11,8 @@ Install Laravel Breeze and choose my favourite stack: React JS
 composer require laravel/breeze --dev
 php artisan breeze:install vue
 ``` 
+
+# Data Visualization Library 
 Then to create a data visualization library, I would install ChartJS (https://www.chartjs.org/) which allows you to create various types of charts.
 
 To get started very quickly, I will start by installing ChartJS Package using this package https://github.com/LaravelDaily/laravel-charts
@@ -35,3 +37,7 @@ then render the bar chart using
 `{!! $my_chart->renderHtml() !!}`
 
 Tweak the charts to ensure it displays all the key information required.
+
+## Deployment
+For my daily tasks, I usually deploy using https://forge.laravel.com/
+It allows you to deploy provision a server and it installs all the necessary services for Laravel project. (PHP, MySQL, Nginx, etc)
