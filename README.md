@@ -1,6 +1,17 @@
 NOTES:
 
-To create a data visualization library, I would install ChartJS (https://www.chartjs.org/) which allows you to create various types of charts.
+First create a new Laravel app.
+`laravel new my-awesome-app`
+
+Install the NPM dependencies
+`npm run dev`
+
+Install Laravel Breeze and choose my favourite stack: React JS
+```php
+composer require laravel/breeze --dev
+php artisan breeze:install vue
+``` 
+Then to create a data visualization library, I would install ChartJS (https://www.chartjs.org/) which allows you to create various types of charts.
 
 To get started very quickly, I will start by installing ChartJS Package using this package https://github.com/LaravelDaily/laravel-charts
 
@@ -22,3 +33,5 @@ return view('chart', compact('my_chart'));
 ```
 then render the bar chart using
 `{!! $my_chart->renderHtml() !!}`
+
+Tweak the charts to ensure it displays all the key information required.
